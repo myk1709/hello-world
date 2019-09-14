@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+</head>
+<body>
+    <p>choose one
+        <select name="drop" id="drop" value="1">
+            <option>choose a number</option>
+            <option> 1 </option>
+            <option> 2 </option>
+            <option> 3 </option>
+            <option> 4 </option>
+            <option> 5 </option>
+            <option> 6 </option>
+            <option> 7 </option>
+            <option> 8 </option>
+            <option> 9 </option>
+            <option> 10 </option>
+            <option> 11</option>
+            <option> 12</option>
+            <option> 13</option>
+            <option> 14</option>
+            <option> 15</option>
+            <option> 16</option>
+            
+        </select>
+        <button onclick="myFunction()">submit</button>
+    </p>
+
+    <script>
+        var drop1;
+        var numOfGuesses = 1
+        var systemGuess = 0;
+        function myFunction()
+         {
+          drop1 = document.getElementById("drop").value; 
+          console.log(drop1);
+          while(systemGuess != drop1 ) 
+         {
+                var guess =Math.floor( Math.random() * 16 +1) ;
+                 console.log(guess);
+                if(drop1 == "choose a number"){
+                   alert("please choose a number");
+                   document.location.reload(true);
+                   break;
+                }
+                else if(guess == drop1){
+                    systemGuess = drop1;
+                    alert("answer is right " + drop1 + " number of attemptes "+ numOfGuesses)
+                    document.location.reload(true)
+                }
+                else{
+                    numOfGuesses++;
+                }
+         }
+        }
+    </script>
+</body>
+</html>
