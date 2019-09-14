@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tester</title>
+            <style>
+                #myDiv{
+                        background-color:red;
+                        height: 150px;
+                        width: 150px;
+                        display: none;
+                        position: relative;
+
+                    }
+            </style>
+</head>
+<body>
+    <h1 style="font-variant-caps: titling-caps">test reaction</h1>
+        click on circle to see reaction
+        <p>you reaction time:<span id="timeTakenByUser"> </span> </p>
+        <div id="myDiv"></div>
+            <script>
+                var start =new Date() .getTime();
+                var myDiv = document.getElementById("myDiv")
+                function myTimer() {
+                             myDiv.style.display ="block";
+                             start =new Date() .getTime();
+                }
+                function delay(){
+                    setTimeout(myTimer, Math.random()*2000);
+                    
+                }
+                function getRandomColor() {
+                    var letters = '0123456789ABCDEF';
+                    var color = '#';
+                    for (var i = 0; i < 6; i++) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
+                    }
+               
+
+                delay();
+                myDiv.onclick = function() {
+                   myDiv.style.display = "none";
+                     var finished = new Date().getTime();
+                     var timeTaken = (finished - start)/1000;
+
+                      document.getElementById("timeTakenByUser").innerHTML = timeTaken + " seconds";
+                   
+                    delay();
+
+
+
+
+                   var topPos,leftPos,borRad,wid;
+                   topPos = Math.floor(Math.random()*300) +"px";
+                
+                   leftPos = Math.floor(Math.random()*300) + "px";
+
+                   borRad = Math.floor(Math.random()*150) + "px"
+                   
+                   wid = Math.floor((Math.random()*200)+ 100) + "px";
+
+
+                   myDiv.style.top = topPos;
+                   myDiv.style.left = leftPos;
+                   myDiv.style.borderRadius = borRad;
+                   myDiv.style.width = wid;
+                   myDiv.style.height = wid;
+                   myDiv.style.backgroundColor = getRandomColor();
+                    
+                  
+                }
+            </script>
+</body>
+</html>
